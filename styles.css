@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 :root {
   --black: #050403;
   --ink: #11100e;
@@ -23,7 +21,7 @@ body {
   margin: 0;
   background: var(--black);
   color: var(--ivory);
-  font-family: var(--font-sans), Arial, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 a {
@@ -38,21 +36,13 @@ textarea {
   font: inherit;
 }
 
-.site-shell {
-  min-height: 100vh;
-  overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(5, 4, 3, 0.08), var(--black) 760px),
-    var(--black);
-}
-
 .hero {
   min-height: 92vh;
   padding: 24px clamp(18px, 4vw, 64px) 88px;
   background:
     linear-gradient(90deg, rgba(5, 4, 3, 0.58), rgba(5, 4, 3, 0.2) 48%, rgba(5, 4, 3, 0.82)),
     linear-gradient(0deg, var(--black), rgba(5, 4, 3, 0.12) 42%),
-    url("/allegro-piano-club.png") center / cover no-repeat;
+    url("assets/allegro-piano-club.png") center / cover no-repeat;
 }
 
 .nav {
@@ -80,7 +70,7 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 50%;
   color: var(--gold-soft);
-  font-family: var(--font-display), serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 28px;
 }
 
@@ -93,7 +83,7 @@ textarea {
 
 .brand strong {
   color: var(--gold-soft);
-  font-family: var(--font-display), serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 19px;
   line-height: 1;
 }
@@ -107,7 +97,7 @@ textarea {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 2.3vw, 30px);
+  gap: clamp(12px, 2vw, 24px);
   color: rgba(247, 241, 229, 0.78);
   font-size: 13px;
   letter-spacing: 0.04em;
@@ -152,7 +142,7 @@ p {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-weight: 600;
 }
 
@@ -160,7 +150,7 @@ h1 {
   max-width: 760px;
   margin-bottom: 18px;
   color: var(--ivory);
-  font-size: clamp(64px, 10vw, 132px);
+  font-size: clamp(58px, 10vw, 132px);
   line-height: 0.86;
   text-shadow: 0 18px 50px rgba(0, 0, 0, 0.75);
 }
@@ -260,9 +250,13 @@ form button {
   border-bottom: 1px solid rgba(215, 168, 76, 0.2);
 }
 
-.intro-band span {
+.intro-band span,
+.history article span {
   color: var(--gold);
   font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .intro-band h2,
@@ -288,11 +282,44 @@ form button {
   margin-bottom: 34px;
 }
 
+.history-grid,
 .event-list,
 .past-grid,
 .steps {
   display: grid;
   gap: 16px;
+}
+
+.history-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.history article,
+.steps article,
+.past-grid article {
+  min-height: 230px;
+  border: 1px solid rgba(215, 168, 76, 0.2);
+  border-radius: 8px;
+  padding: 24px;
+  background: rgba(24, 19, 14, 0.72);
+}
+
+.history article h3,
+.event-card h3,
+.steps h3,
+.past-grid h3 {
+  margin: 7px 0;
+  color: var(--ivory);
+  font-size: 28px;
+}
+
+.history article p,
+.event-card p,
+.steps p,
+.past-grid p {
+  margin-bottom: 5px;
+  color: rgba(247, 241, 229, 0.7);
+  line-height: 1.6;
 }
 
 .event-card {
@@ -307,7 +334,7 @@ form button {
 
 .event-card time {
   color: var(--gold-soft);
-  font-family: var(--font-display), serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 34px;
   line-height: 0.9;
 }
@@ -320,23 +347,9 @@ form button {
   text-transform: uppercase;
 }
 
-.event-card h3,
-.steps h3,
-.past-grid h3 {
-  margin: 7px 0;
-  color: var(--ivory);
-  font-size: 28px;
-}
-
-.event-card p,
-.steps p,
-.past-grid p {
-  margin-bottom: 5px;
-  color: rgba(247, 241, 229, 0.7);
-  line-height: 1.6;
-}
-
-.split {
+.split,
+.join,
+.forms {
   display: grid;
   grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1fr);
   gap: clamp(28px, 5vw, 72px);
@@ -344,15 +357,6 @@ form button {
 
 .steps {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.steps article,
-.past-grid article {
-  min-height: 230px;
-  border: 1px solid rgba(215, 168, 76, 0.2);
-  border-radius: 8px;
-  padding: 24px;
-  background: rgba(24, 19, 14, 0.72);
 }
 
 .steps span {
@@ -365,8 +369,12 @@ form button {
   color: var(--gold-soft);
 }
 
+.join,
 .repertoire {
   border-top: 1px solid rgba(215, 168, 76, 0.18);
+}
+
+.repertoire {
   border-bottom: 1px solid rgba(215, 168, 76, 0.18);
 }
 
@@ -429,12 +437,6 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(215, 168, 76, 0.16);
 }
 
-.forms {
-  display: grid;
-  grid-template-columns: minmax(270px, 0.85fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 72px);
-}
-
 .signup-form,
 .compact-form {
   border: 1px solid rgba(215, 168, 76, 0.24);
@@ -483,7 +485,7 @@ textarea:focus {
   border: 0;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 920px) {
   .hero {
     min-height: auto;
     padding-bottom: 56px;
@@ -496,13 +498,15 @@ textarea:focus {
 
   .nav-links {
     justify-content: flex-end;
-    max-width: 360px;
+    max-width: 420px;
     flex-wrap: wrap;
   }
 
   .hero-grid,
   .intro-band,
+  .history-grid,
   .split,
+  .join,
   .request-panel,
   .forms,
   .newsletter {
